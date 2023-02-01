@@ -1,0 +1,6 @@
+<?php
+    // question is incomplete
+
+
+
+?>
