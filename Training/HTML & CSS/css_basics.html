@@ -1,0 +1,127 @@
+<html>
+<head>
+<style>
+
+/* simple selector and sticky position */
+p{
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+  background-color: green;
+  border: 2px solid #4CAF50;
+}
+div:hover p {  /* tooltip hover */
+    display: block;
+}
+
+/* id selector */
+#para1 {
+  color: blue;
+}
+/* Class selector */
+.center {
+  color: red;
+}
+/* universal selector */
+* {
+  text-align: center;
+}
+
+/* background color */
+body{
+    background-color:lightblue;
+}
+
+/* borders in css */
+p.solid {border-style: solid;}
+
+/* css box model */
+
+div {
+  width: 300px;
+  border: 15px solid green;
+  padding: 50px;
+  margin: 20px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 300px;
+  border: 3px solid #73AD21;
+  float: right;
+}
+h4 {
+  text-decoration-line: underline;
+}
+
+/* unvisited link */
+a:link {
+  color: red;
+}
+
+/* visited link */
+a:visited {
+  color: green;
+}
+
+/* mouse over link */
+a:hover {
+  color: hotpink;
+}
+
+/* selected link */
+a:active {
+  color: blue;
+}
+/* css overflow property */
+h5.div {
+  background-color: coral;
+  width: 200px;
+  height: 65px;
+  border: 1px solid black;
+  overflow: auto;
+  position:sticky;
+  float: left;
+}
+/* gradient color */
+#grad1 {
+  height: 200px;
+  background-color: red; /* For browsers that do not support gradients */
+  background-image: linear-gradient(red, yellow);
+  z-index: -1;
+}
+
+img {
+  border-radius: 50%;
+}
+</style>
+</head>
+<body>
+<!-- simple selector -->
+<p class="solid"><h3>Hello Creole Studio!</h3></p>
+<p>These paragraphs are styled with CSS.</p>
+ 
+<!-- id selector -->
+<h4 id="para1">These is done by id selector</h4>
+
+<div>
+<!-- class selector -->
+<h4 class="center">These is done by class selector it also has a fixed position property</h4>
+</div>
+<!-- universal selector -->
+<h4>This is done by universal selector it will be applied to each element text align=center;</h4>
+
+<!-- css links visited -->
+<p><b><a href="https://www.w3schools.com/css/css_link.asp" target="_blank">This is a link to css attributes in w3 school</a></b></p>
+
+
+<h5 class="div">You can use the overflow property when you want to have better control of the layout. The overflow property specifies what happens if content overflows an element's box.</h5>
+<div id="grad1"></div>
+<br>
+<br>
+<br>
+
+<img src="https://www.islandtechnologies.net/assets/img/2x/island-centered@2x-80.jpg" width="500" height="500" alt="You have no internet connection"/>
+
+      
+</body>
+</html>
