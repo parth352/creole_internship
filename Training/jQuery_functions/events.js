@@ -1,3 +1,4 @@
+
 $(document).ready(function(){
     $("#click").click(function(){
         $(this).hide();
@@ -5,7 +6,6 @@ $(document).ready(function(){
     
     $("#dblclick").dblclick(function(){
         $(this).hide();
-    
     });
 
     $("#mouse_enter").mouseenter(function(){
@@ -31,6 +31,7 @@ $(document).ready(function(){
         alert("you have leaved this element");
     });
 
+    //  this are form events focus and blur
     $("input").focus(function(){    //// blur event is used when input field gain focus 
         $(this).css("background-color", "blue");
     });
@@ -49,4 +50,18 @@ $(document).ready(function(){
           $(this).css("background-color", "yellow");
         }  
       });
+    
+    // now from here onwards this all are keyboard events
+    $("#key_down").keydown(function(){  // it will perform action when key is pressed
+        alert("you pressed one key");
+      });
+
+    $("#key_up").keyup(function(){    // It performs action when key is released
+        alert("you released one key");
+      });
+
+    count=0;
+    $("#key_press").keypress(function(){  
+        $("span").text (count += 1);  
+      });  
 });
