@@ -1,0 +1,90 @@
+<html>
+    <head>
+        <script src='jquery-3.6.3.js'></script>
+        <script src ="effects.js" type="text/javascript">
+        </script>
+
+        <!-- This style is only for stop effect to understand that effect properly -->
+        <style>         
+            #panel, #flip {
+                padding: 5px;
+                font-size: 18px;
+                text-align: center;
+                background-color: #555;
+                color: white;
+                border: solid 1px #666;
+                border-radius: 3px;
+            }
+    
+            #panel {
+                padding: 50px;
+                display: none;
+            }
+        </style>
+    </head>
+
+    <body>        
+        <h1>Jquery Effects</h1>
+        <h3>Hide/show Effects</h3>
+        <p>This is done by hide effect.</p>
+        <p>This is done by show effect.</p>
+        <button id="hide">Hide me</button>
+        <button id="show">Show me</button>
+
+        <h3>This is hide/show toogle method </h3> <!-- This method displays show/hide content on single button click-->
+        <p class="hide_show_toogle_test">This is a toogle method.</p>
+        <p class="hide_show_toogle_test">This is takes one second to disappear.</p>
+        <button id="hide_show_toggle">click me to see toggle method </button>
+       
+        <h3>fadein/fadeout Effects</h3>
+        <p class="fadein_fadeout">This is a fadein method.</p>
+        <p class="fadein_fadeout">This is a fadeout method.</p>
+        <button id="fadein">click me to fade in content </button>
+        <button id="fadeout">click me to fade out content </button>
+    
+        <h3>fadein/fadeout Toogle Effects</h3>
+        <p class="fade_toogle">This is a fadein toogle method.</p>
+        <p class="fade_toogle">This is a fadeout toggle method.</p>
+        <button id="fade_toggle">click me to fade in/out content </button>
+
+        <h3>Jquery Sliding Effects</h3>
+        <button id="slide_up">click me to slide up content </button>
+        <button id="slide_down">click me to slide down content </button>
+        <button id="slide_toggle">click me to slide up/down content </button>
+        <p class="slide">This is a sliding up method.</p>
+        <p class="slide">This is a sliding down method.</p>
+        <p class="slide">This is a sliding toggle method.</p>
+        
+        <h3>Jquery Animation Effects</h3>
+        <button id="animation">Click to perform animation</button>
+        <div style="background:red; 
+                    height:100px; 
+                    width:100px;
+                    position:absolute;" class="semi_animation">
+        </div> 
+        <!-- Another animation box  -->
+        <div style="background:#98bf21;   
+                   height:100px;
+                   width:200px;
+                   position:relative;
+                   opacity: 0.5;" class="complete_animation">HELLO
+        </div>
+    
+        <h3>Jquery Stop Effect (It is used to stop any effcts in between)</h3>  <!--It is used to stop any effcts in between-->
+        <button id="stop">Click this button to stop the effect in between</button> <br>
+        <div id="flip">Click to slide down panel</div>
+        <div id="panel">Hello world!</div>
+
+        <h3>Jquery callback Effect</h3>  <!--A callback function is executed after the current effect is finished-->
+        <p class="callback_effect">This is a method of callbachk function.</p>
+        <button id="callback_effect">click me to see the callback function beng executed after hiding effect is finish</button>
+
+        <h3>Jquery Chaining method</h3>
+        <pre class="chaining_method">
+            This is content 
+            which makes use of
+            calback chaining method
+        </pre>
+        <button id="chaining_method">Click me to see the chaining method</button>
+    </body>
+</html>
