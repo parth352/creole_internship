@@ -1,0 +1,92 @@
+<html>
+    <head>
+        <script src="jquery-3.6.3.js" type="text/javascript"></script>
+        <script src="traversing.js" type="text/javascript"></script>
+
+        <!-- This style is used for proper displaying of an traversing method -->
+        <style>
+            div * { 
+              display: block;
+              border: 2px solid lightgrey;
+              color: lightgrey;
+              padding: 5px;
+              margin: 15px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>jQuery Ancestor Method</h1>
+        <div>
+            <div style="width:500px;">div (great-grandparent)
+              <ul>ul (grandparent)  
+                <li>li (direct parent)
+                  <span class="ancestors">span</span>
+                </li>
+              </ul>   
+            </div>
+          
+            <div style="width:500px;">div (grandparent)   
+              <p>p (direct parent)
+                <span class="ancestors">span</span>
+              </p> 
+            </div>
+        </div> 
+        <br>
+        <button id="single_parents">Click me to see single parent of span</button> 
+        <button id="multi_parents">Click me to see parents of span</button>
+        <button id="specified_parents">Click me to see parents of span thar are ul</button>
+        <button id="until_parents">Click me to see parents of span until div</button> 
+    
+        <h1>jQuery Descendants Method</h1>
+        <div style="width:500px;" id="div_decendants"> div (current element)  <!-- we can use both the id and class in same element here class is used for describin css and id is used for jquery-->
+            <p>p (child)
+              <span class="decendants">span (grandchild)</span>   
+            </p>
+            <p>p (child)
+              <span class="decendants">span (grandchild)</span>
+            </p> 
+        </div>
+        <button id="decendants_child">Click me to see decendants of span</button>
+        <button id="decendants_find">Click me to find span</button> 
+
+        <h1>jQuery Siblings Method</h1>
+        <div >div (parent)
+            <p>p</p>
+            <span>span</span>
+            <h2>h2</h2>
+            <h3>h3</h3>
+            <p>p</p>
+        </div>
+        <button id="siblings">Click me to see siblings of h2</button>
+        <button id="specified_siblings">Click me to see siblings p of h2</button>
+        <button id="siblings_next_method">Click me to see next siblings of h2</button>
+        <button id="siblings_nextall_method">Click me to see next all siblings of h2</button>
+        <button id="siblings_prevall_method">Click me to see previous all siblings of h2</button>
+
+        <h1>jQuery Filtering Methods</h1>
+        <div style="border: 1px solid black;" class ="filter_method">
+            <p class="filter_method">p</p>
+            <p class="filter_method">p.</p>
+          </div>
+          <br>
+          
+          <div style="border: 1px solid black;" class ="filter_method">
+            <p class="filter_method">p</p>
+            <p class="filter_method">p.</p>
+          </div>
+          <br>
+          
+          <div style="border: 1px solid black;" class ="filter_method">
+            <p class="filter_method">p</p>
+            <p class="filter_method">p</p>
+          </div>
+        <button id="filter_first_method">Find First element of div</button>
+        <button id="filter_last_method">Find Last element of div</button>
+        <button id="filter_equal_method">Find specified element of div</button>
+        <button id="simple_filter_method">Find specified element which has class name:filter_method</button>
+        <button id="not_filter_method">Find specified element which not has class name:filter_method</button>
+
+    </body>
+    
+</html>
