@@ -1,0 +1,91 @@
+-- Sql create database
+/* CREATE DATABASE my_first_database; */	-- This is used to create Database
+
+-- Sql create table
+/* CREATE TABLE employe_info(		-- This is used to create table in database
+	employe_id int,
+    employe_name varchar,
+    employe_position varchar,
+    employe_address varchar,
+    employe_salary int,
+    employe_extra_info varchar
+); */
+
+-- Sql insert values into table
+/*INSERT INTO employe_info VALUES (1, "parth", "intern", "kumbhalmer", "50000", "gcet_clg"); */  -- this is used to insert values in table
+
+-- sql insert new column in database
+/* ALTER TABLE employe_info ADD  employe_extra_info_2 varchar(255); */
+
+-- remove extra column from table
+/* ALTER TABLE employe_info DROP employe_extra_info_2; */ -- this is used to remove column from table
+
+-- sql used for changing datatype for an column
+/* ALTER TABLE employe_info MODIFY COLUMN employe_salary varchar(10);*/  -- This is used to modify datatype in --column
+
+-- sql used for setting not null constrain
+/* ALTER TABLE employe_info MODIFY employe_id int NOT NULL; */ -- This is used to set constraints in table
+
+-- sql used for setting unique  constrain
+/* ALTER TABLE employe_info ADD UNIQUE (employe_position); */  -- This is used to set unique constraint in single column
+
+-- sql used for setting unique constrain form multiple column
+/* ALTER TABLE employe_info ADD CONSTRAINT uc_employe_info UNIQUE (employe_position,employe_extra_info); */  -- This is used to set unique constraint in multiple column
+
+-- sql used to remove unique constraint
+/* ALTER TABLE employe_info DROP INDEX uc_employe_info; */ -- This is used to drop unique constraint from multiple column
+
+-- sql used for adding/removing primary key
+/* ALTER TABLE employe_info ADD CONSTRAINT pk_employe_info PRIMARY KEY (employe_id,employe_extra_info); */ -- this set primary key to column
+
+/* ALTER TABLE employe_info DROP PRIMARY KEY; */ -- This is used to remove primary key
+
+-- sql used for adding foreign key
+/* ALTER TABLE order_info ADD CONSTRAINT fk_order_info FOREIGN KEY (employe_id) REFERENCES employe_info(employe_id); */ -- This is used to add foreign key
+
+-- sql used for removing foreign key
+/* ALTER TABLE order_info DROP FOREIGN KEY fk_order_info; */ -- This is used to drop foreign key
+
+-- sql used for adding check constraint
+/* ALTER TABLE employe_info ADD CONSTRAINT chk_info CHECK (employe_salary>=10000); */  -- This is used to check the value inserted shold be greater than 10000 otherwise it will give error
+
+-- sql used for removing check constraint
+/* ALTER TABLE employe_info DROP CHECK chk_info; */  -- This is used to drop check constraint
+
+-- sql used to add default value to column 
+/* ALTER TABLE employe_info ALTER employe_address SET DEFAULT 'Ahemdabad'; */  -- this is used to set default value in column
+
+-- sql used to remove default value from column
+/* ALTER TABLE employe_info ALTER employe_address DROP DEFAULT; */  -- This is useed to drop default value from column
+
+-- sql is used to create index for column
+/* CREATE INDEX idx_employe_name ON employe_info (employe_name); */  -- This is used to define index so it can search fast
+
+-- sql is used to define unique index from column
+/* CREATE UNIQUE INDEX idx_employe_id ON employe_info (employe_id); */  -- This is used to define unique index which does  not allow duplicate value
+
+-- sql is used to remove index value
+/* ALTER TABLE employe_info DROP INDEX idx_employe_name; */  -- This is used to drop the index value
+
+-- sql is used to define auto_increment in column
+/* ALTER TABLE employe_info AUTO_INCREMENT=100; */  -- This is used to apply auto increment value like id_number etc
+
+-- sql is used for creating view of an table
+/*CREATE VIEW demo_view AS SELECT employe_id, employe_name FROM employe_info; */  -- this is used to create view from employe_info table
+
+-- sql is used for displaying view table
+/* SELECT * from demo_view; */  -- This is used to display new generated view 
+
+-- sql used for dropping table
+/*DROP TABLE employe_info;  */
+
+-- sql is used for dropping database
+/* DROP DATABASE my_first_database; */
+
+-- sql injection technique 
+/* a code injection technique that might destroy your database.
+It is one of the most common web hacking techniques.*/
+
+-- sql injection protection technique
+/* we can prevent sql injection using sql parameters for prtection
+values that are added to an SQL query at execution time*/ 
