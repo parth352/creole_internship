@@ -6,7 +6,48 @@
 
     <body>
         <h3>2. Limit no of characters in the input field.</h3>
-        <input type="text" id="text" maxlength = 10>
-        <input type="text" id="remaining_text">
+        Enter your input: <input type="text" id="input">
+        
+        <P id="output"></P>
     </body>
 </html>
+<!-- 
+<html>
+  <head>
+    <script src="jquery-3.6.3.js"></script>
+    <script>
+      $(document).ready(function() {
+        var input = $("#input");
+        var limitInput = $("#limit");
+        var exceeded = $("#exceeded");
+        var limit = 10;
+        var ex = '';
+        
+        limitInput.on("input", function() {
+          limit = limitInput.val();
+          input.val('');
+          ex = '';
+          exceeded.text('');
+        });
+        
+        input.on("input", function() {
+          var count = input.val().length;
+          if (count > limit) {
+          	ex += input.val().substring(limit)
+            exceeded.text(ex);
+            input.val(input.val().substring(0, limit));
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+  	Limit:
+  	<input id="limit" type="number" value="10">
+    <br><br>
+    Input:
+    <input id="input" type="text">
+    <br>
+    <div id="exceeded"></div>
+  </body>
+</html> -->
