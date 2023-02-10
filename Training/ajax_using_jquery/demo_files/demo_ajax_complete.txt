@@ -1,0 +1,1 @@
+The ajaxComplete() method specifies a function to be run when an AJAX request completes.
