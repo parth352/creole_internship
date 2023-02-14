@@ -101,24 +101,114 @@
                 echo "The vegitable is {$this->name}, the color is {$this->color}, and the weight is {$this->weight} gram.";
               }
             }
-
             $patato = new patato("patato", "brown", 50);
             $patato->intro();
+            echo "<br>";
         ?>
         
 
-        <!-- constant method -->
-        <h3> Use of const method</h3>
+        <!-- inheritance method  and protected access modifier -->
+        <h3>Inheritance method with Protected Access Modifier </h3>
+        <?php
+          class biography{
+            public $name;
+            public $age;
+
+            public function __construct($name,$age){
+              $this->name = $name;
+              $this->age = $age;
+            }
+            protected function  intro() {             // This is protecte method which can be only caleed within itself or its derived class
+                echo "Your name is {$this->name}";    
+              }
+            }
+
+          class your extends biography{
+            public function message() {
+              echo "Your age is {$this->age}";
+              $this->intro();                         // Here the protected method is called 
+            }
+          }
+          $your = new your("parth","25");
+          $your->message();
+
+        ?>
+
+        <!-- Use of final keyword to prevent method overriding -->
+        <h3>Use of Final Keyword to prevent method overriding</h3>
+        <?php
+           /*final*/ class volvo{                    // Here final keyword will prevent inheritance of class
+              public $name;
+
+              public function __construct($name){
+                $this->name=$name;
+              }  
+             /* final */ public function intro(){      // final method will prevent method overriding it will show error
+                echo "my name is {$this->name}";
+              }
+            }
+
+            class xc40 extends volvo{
+              public $price;
+
+              public function __construct($name,$price){
+                $this->name =$name;
+                $this->price =$price;
+              }
+              public function intro(){
+                echo "my name is {$this->name} and my price is {$this->price}";
+              }
+            }
+
+            $xc40 =new xc40("BMW","80 lac");
+            $xc40->intro();
+        ?>
+
+        <!-- Use of php class constants i php -->
+        <h3>Use of php class constants</h3>
         <?php
             class goodmorning{
-                const MESSAGE = "Have a Nice Day";
-                
-                public function good(){
-                    echo self::MESSAGE;      // we can access a constant from inside the class by using the self keyword followed by the scope resolution operator (::) followed by the constant name
-                }
+              const MESSAGE = "Have a Nice Day this is a constant message";  // const must be declared in uppercase to easily identify.
+              function morning(){
+                echo self::MESSAGE;
+              }
             }
-            $goodmorning = new goodmorning();
-            $goodmorning->good();
+            $goodmorning = new goodmorning;
+            $goodmorning->morning();
         ?>
+        
+        <!-- Abstract class method -->
+        <h3>Use of abstract classes method</h3>   <!-- abstract classes are method which only contains names and arguments and no methods-->
+        <?php
+            // Parent class
+            abstract class bike {
+              public $name;
+              
+              public function __construct($name, $price) {
+                $this->name = $name;
+                $this->price =$price;
+              }
+              abstract public function intro(); 
+            }
+            // Child classes
+            class splender extends bike {           // methods can be assign to abstract class by using child classes method
+              public function intro(){
+               echo "$this->name is of hero company and it's price is $this->price";
+              }
+            }
+            class unicorn extends bike {
+             public function intro(){
+                echo "$this->name is of honda company and it's price is $this->price";
+             }
+            }
+            // Create objects from the child classes
+            $splender = new splender("splender", "80,000");
+            echo $splender->intro();
+            echo "<br>";
+            $unicorn = new unicorn("unicorn","1,30,000");
+            echo $unicorn->intro();
+            echo "<br>";
+        ?>       
+        
     </body>
 </html>
