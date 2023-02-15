@@ -208,7 +208,254 @@
             $unicorn = new unicorn("unicorn","1,30,000");
             echo $unicorn->intro();
             echo "<br>";
-        ?>       
+        ?>
         
+        <!-- Interface Method -->
+        <h3>Interface method in php</h3>  <!--Interfaces allow you to specify what methods a class should implement.-->
+        <?php
+          interface Cat_family {
+            public function sound();
+          }
+
+          class lion implements cat_family{
+            public function sound(){
+              echo "LION ROAR";
+            }
+          }
+
+          class cat implements cat_family{
+            public function sound(){
+              echo " CAT MEOW";
+            }
+          }
+
+          $cat = new cat();
+          $lion = new lion();
+          $cat_family_array=[$cat, $lion];
+
+          foreach($cat_family_array as $cat_family){
+          $cat_family->sound();
+          echo "<br>"; 
+          }
+        ?>
+
+        <!-- Traits methiod is used insted of classes to support multiple inheritance -->
+          
+           <h3>PHP Traits method</h3>    <!-- traits are used to declare methods that can be used in multiple classes. 
+                                        Traits can have methods and abstract methods that can be used in multiple classes -->
+        <?php
+            trait message1 {        // traits keyword is used to declare traits 
+                public function msg1() {
+                    echo "This is trait method which is used to declare method that can be used in multiple classes";
+                }
+            }
+            trait message2 {    
+                public function msg2() {
+                   echo "you can also use multiple trait in same class";
+                }
+            }
+            class Welcome1 {
+                use message1;     // use keyword is used to use traits method in different classes 
+            }
+
+            class Welcome2 {
+                use message1, message2;
+            }
+
+            $obj = new Welcome1();
+            $obj->msg1();
+            echo "<br>";
+
+            $obj2 = new Welcome2();
+            $obj2->msg1();
+            echo "<br>";
+            $obj2->msg2();
+        ?>
+        
+        <!-- Alternate Precedence Order Example -->
+        <h4>Trait Alternate Precedence Order Example</h4>
+        <?php
+          trait HelloWorld {
+            public function sayHello() {
+                echo 'Hello World!';
+            }
+          }
+        
+          class TheWorldIsNotEnough {
+            use HelloWorld;
+            public function sayHello() {    // this is overriding sayHello() function
+                echo 'Hello Universe!';
+            }
+          }
+    
+          $new_obj = new TheWorldIsNotEnough();
+          $new_obj->sayHello();
+        ?>
+
+        <!-- conflict resolution for trait method using insteadof -->
+        <h4>Conflict resolution for trait method using insteadof</h4>
+        <?php
+            trait A {
+                public function smallTalk() {
+                    echo 'this is small talk of trait a';
+                }
+                public function bigTalk() {
+                    echo 'THIS IS BIG TALK OF TRAIT A';
+                }
+            }
+
+            trait B {
+                public function smallTalk() {
+                    echo 'this is small talk of trait b';
+                }
+                public function bigTalk() {
+                    echo 'THIS IS BIG TALK OF TRAIT B';
+                }
+            }
+
+            class Talker {
+                use A, B {
+                    B::smallTalk insteadof A;   //the insteadof operator needs to be used to choose exactly one of the conflicting methods.
+                    A::bigTalk insteadof B;
+                }
+            }
+
+            class Aliased_Talker {
+                use A, B {
+                    B::smallTalk insteadof A;
+                    A::bigTalk insteadof B;   
+                    B::bigTalk as Talk;       // if two methods have same name inside same class change the calling class name by using (as) keyword
+                }                             // Now B::bigTalk will be called by name Talk.
+            }
+            $new_obj =new Talker();
+            $new_obj->bigTalk(); 
+            echo "<br>";
+            $new_obj->smallTalk();
+            echo "<br>";
+            $new_obj2 =new Aliased_Talker();
+            $new_obj2->Talk(); 
+        ?>
+
+
+        <!-- Use of Nested traits OR traits inside traits -->
+        <h3>Use of Nested Traits OR traits composed of traits</h3>
+        <?php
+          trait Hello{
+            public function sayHello(){
+              echo 'This is example of ';
+            }
+          }
+
+          trait world{
+            public function sayWorld(){
+              echo "traits inside another trait";
+            }
+          }
+
+          trait combine{
+            use Hello,World;
+          }
+
+           class Use_Me{
+            use combine;
+           }
+
+           $new_obj= new Use_Me();
+           $new_obj->sayHello();
+           $new_obj->sayWorld();
+        ?>
+
+        <!--Static Method in PHP-->
+        <h3>Static Method in PHP</h3>
+        <?php
+          class static_example{
+            public static function print_msg(){
+              echo "Hello this is static method in php which is called by class_name::method_name";
+            }
+
+            public function display_static_method(){}
+          }
+          static_example::print_msg();                // we can call the satic method without creating object/instance of a class\
+                                                      // you can use same syntax for calling static method inside another class 
+        ?>
+
+        <!-- static method inside another method of same class -->
+        <h4>Static Method in PHP calling method inside another method in same class</h4>
+        <?php
+          class static_example1{
+            public static function print_msg(){
+              echo "Hello this is static method inside another method of same class to call use (self::method_name)";
+            }
+            public function __construct(){
+              self::print_msg();                // To call atatic method inside another method of same class use (self::method_name)
+            }
+          }
+          new static_example1();
+        ?>
+
+        <!-- Calling static method inside child class from parent class -->
+        <h4>Static Method in PHP calling method inside child class</h4>
+        <?php
+          class parent_class{
+            public static function print_msg(){
+              echo "we are calling static method inside child class from parentt class using (parent::method_name)";
+            }
+          }
+
+          class child_class extends parent_class{
+            public function __construct(){
+              parent::print_msg();
+            }
+          }
+          new child_class();
+        ?>
+
+
+        <!-- Static Property in php is same as static method -->
+        <h3>Static Property in php</h3>
+        <?php
+          class static_property{
+            public static $pi_val = 3.14;              // assigning static property
+            public function pi_val(){
+              echo "This is called by (self::static_val) from inside its own class == ". self::$pi_val;
+            }
+          }
+
+          class child_property extends static_property{
+            public function __construct(){
+              echo "This is called by (parent::static_val) from inside child class == ". parent::$pi_val;
+            } 
+          }
+
+          echo "This is called by (class_name::static_property) from outside class == ".static_property::$pi_val;
+          echo "<br>";
+
+          $static_property= new static_property();
+          $static_property->pi_val();
+          echo "<br>";
+
+          new child_property();
+        ?>
+
+
+        <!-- PHP Namespace-->
+        <h3> Use of Namespace in php</h3>    <!-- Allow for better organization by grouping classes that work together to perform a task
+                                                  They allow the same name to be used for more than one class -->
+        <?php
+          namespace html;
+          class Table {
+            public $title = "";
+            public $numRows = 0;
+            public function message() {
+              echo "<p>Table '{$this->title}' has {$this->numRows} rows.</p>";
+            }
+          }
+          $table = new Table();
+          $table->title = "My table";
+          $table->numRows = 5;
+
+          $table->message();
+        ?>
+
     </body>
 </html>
