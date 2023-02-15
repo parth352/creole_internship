@@ -11,15 +11,22 @@
 
 <body>
   <?php
+  $arr= ['a','x'];
     if(isset($_POST['string']))
     {  
       $str =$_REQUEST['string'];
       $count =strlen($str);
 
-        for($index=$count-1; $index>=0; $index--){
-            echo $str[$index];
+        for($index=0; $index<$count; $index++){
+    
+            if(in_array($str[$index], $arr)){
+                continue;
+            }
+            else{
+                echo $str[$index];
+            }
         }
     }
-?>
+    ?>
 </body>
 </html>

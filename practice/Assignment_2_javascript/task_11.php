@@ -13,13 +13,20 @@
   <?php
     if(isset($_POST['string']))
     {  
-      $str =$_REQUEST['string'];
+      $str =$_REQUEST['string'];    
       $count =strlen($str);
+      $str = strtoLower($str);
 
-        for($index=$count-1; $index>=0; $index--){
-            echo $str[$index];
-        }
+     for($index = 0; $index < $count; $index++){
+
+        if($index%2==0){
+            echo strtoupper($str[$index]);
+        }    
+        else{
+            echo ($str[$index]);
+        }  
+      }
     }
-?>
+    ?>
 </body>
 </html>

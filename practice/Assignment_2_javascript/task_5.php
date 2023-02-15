@@ -15,20 +15,18 @@
     <?php
 
     if(isset($_POST['string']))
-    {        
+    {
+    $arr =['a','e','i','o','u'];        
     $input1 =$_POST['number']-1;
     $str =$_POST['string'];
-    $arr =explode(" ",$str);
-    $count= count($arr);
-
-        if($arr[$input1]=="a" || $arr[$input1]=="e" || $arr[$input1]=="i" || $arr[$input1]=="o" || $arr[$input1]=="u"){
-
+    $new_str = str_split($str);
+   
+        if(in_array($new_str[$input1],$arr)){
             echo "vowel";
         }
         else{
             echo "consonent";
         }
-      
     }  
     ?>
 </body>

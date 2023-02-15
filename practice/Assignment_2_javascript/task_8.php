@@ -12,11 +12,9 @@
 <body>
     <?php
         if(isset($_POST['string'])) { 
-
             $str =$_POST['string'];
             
-            function word($str)
-            {
+            function word($str){
                 $new_str= ucwords($str);
                 echo "$new_str";
             }

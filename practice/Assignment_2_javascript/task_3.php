@@ -15,11 +15,21 @@
     {  
       $str =$_REQUEST['string'];
       $count =strlen($str);
+      $arr= [];
+      $arr1=[];
 
-        for($index=$count-1; $index>=0; $index--){
-            echo $str[$index];
+      for($index = 0; $index < $count; $index++){
+
+        if(in_array($str[$index], $arr)){
+            array_push($arr1, $str[$index]);
+        }
+        else{ 
+            $arr[0] = $str[$index]; 
         }
     }
-?>
+    sort($arr1);
+    print_r($arr1[0]);
+    }
+  ?>
 </body>
 </html>
