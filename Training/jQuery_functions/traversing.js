@@ -75,6 +75,4 @@ $(document).ready(function () {
       .not(".filter_method")
       .css({ color: "red", border: "2px solid red" }); // filter method will return the element of class name filter_method. Always assign .filter_method to specify class
   });
-
-
 });

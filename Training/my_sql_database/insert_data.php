@@ -1,5 +1,6 @@
 <html>
     <body>
+        
         <?php include "connection.php";?>
 
         <form method ="post" action = "<?php $_SERVER['PHP_SELF'];?>">

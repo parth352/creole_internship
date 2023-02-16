@@ -7,17 +7,18 @@ $(document).ready(function(){
 
     //2. Limit no of characters in the input field.
          var temp = '';
-        $('#input').on("keypress", function() {
+        $('#input').on("keyup", function() {
           var count = $('#input').val().length;
           if (count > 10) {
           	temp += $('#input').val().substring(9)
               $('#output').text(temp);
               $('#input').val( $('#input').val().substring(0, 9));
           }
-        //   else if(count < 10)
-        //   {
-        //     $('#output').hide();
-        //   }
+
+          else if(count < 9)
+          {
+            $('#output').empty();
+          }
         });
       
 
