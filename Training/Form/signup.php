@@ -3,7 +3,7 @@
     <meta charset="UTF-8">    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src ="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"> </script>
-    <link rel="stylesheet" href ="style.css">
+    <link rel="stylesheet" href ="css/style.css">
     <script src ="Resources/jquery.validate.min.js"> </script>
 
     <script>
@@ -26,31 +26,45 @@
             });  
         });  
     </script>
+
+<script>
+           $(document).ready(function(){
+            $("#submit").click(function(e){
+                e.preventDefault();
+                var data = $('#signup_form').serialize();
+                $.ajax({
+                    type : "post",
+                    url : "sql_query/insert_user.php",
+                    data : data,
+                }).done(function(response){
+                    response = JSON.parse(response);
+                    if(response['status']){
+                        location.href = "index.php";
+                    }
+                    else{
+                        var errorMessage = '';
+                        $("#p").html((response.msg));
+                        $.each(response['msg'], function(index, message) {
+                            errorMessage += '<div>' + message + '</div>';
+                        });
+                        $("#p").html(errorMessage).css({'color':'red'});
+                        $("#p").show();
+                    }
+                }).fail(function() {
+                    alert("your ajax request is not working");
+                })
+            })
+        }) 
+        </script>
 </head>
 
-<?php
-    include 'connection.php';
 
-    if($_SERVER['REQUEST_METHOD']==="POST"){
-
-        $f_name    = trim($_POST["f_name"]);
-        $email    = trim($_POST["email"]);
-        $password = md5($_POST['password']);
-
-        $sql_insert= "INSERT INTO login_data VALUES (' ','$email','$password', '$f_name') ";
-    
-        $result_insert =mysqli_query($conn, $sql_insert);
-
-            if ($result_insert){
-                header("Location:index.php");
-            }
-        }
-    
-?> 
 
 <body>
 
-<div class="pt-5">  
+<?php include  "nav_bar.php";?>
+
+<div class="pt-0">  
   <div class="global-container">  
     <div class="card login-form">  
     <div class="card-body">  
@@ -72,13 +86,17 @@
                     <?php if(isset($password_err)) {echo "<p class='message'>" .$password_err. "</p>" ;}?>
                 </div>
                 <div> 
-                <button type="submit" class="btn btn-primary btn-block"> Register </button>
+                <button type="submit" class="btn btn-primary btn-block" id="submit"> Register </button>
                  
                 </div> 
                  
                 <div class="sign-up">  
                     Do have an account? <a href="index.php"> Log in </a>  
-                </div>  
+                </div>
+                <div class="sign-up">  
+                    <p id="p" style="color:red; font-size:15px; font-variant:small-caps; "> </p>  
+                </div>
+                   
             </form>  
         </div>  
     </div>  

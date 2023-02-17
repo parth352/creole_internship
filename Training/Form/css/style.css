@@ -44,12 +44,37 @@ label.error {
     color: red;  
     font-size: 1rem;  
     display: block;  
-    margin-top: 5px;  
+    margin-top: 5px;
+    font-variant:small-caps;  
     }  
   input.error {  
     border: 1px dashed red;  
-    font-weight: 150;  
-    color: red;  
+    font-weight: 300;  
+    color: red;
+    font-variant:small-caps;  
   }
-.errorMsg{ color: red; }
+.errorMsg{ color: red;
+    font-size: 1rem;  
+    display: block;  
+    margin-top: 5px;
+    font-variant:small-caps; 
+}
 .message{color: red; }  
+
+/* following css is for displaying error messag after submiting form  */
+.err{
+    /* border: 1px dashed red;   */
+    font-weight: 300;  
+    color: red;
+    font-variant:small-caps;  
+  }
+
+  .WebContainer{
+    width: 100%;
+    height: auto;
+}
+.articles{
+    width:90%; /*Takes 90% width from WebContainer*/
+    height: auto;
+    margin: auto;
+}
