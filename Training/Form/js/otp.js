@@ -1,19 +1,17 @@
 $(document).ready(function () {
   $("#otp_form").validate({
     rules: {
-      otp: {
+      'otp': {
         required: true,
         minlength: 6,
       },
     },
-    messages: {
+    'messages': {
       otp: "Minimum lenght of otp is 6.",
     },
   });
 
-
 // This is for ajax call
-
 $("#submit").click(function (e) {
     e.preventDefault();
     var data = $("#otp_form").serialize();
@@ -27,12 +25,10 @@ $("#submit").click(function (e) {
       if (response["status"]) {
             location.href = "reset_password.php";
             // var sucess_Message = "";
-
             // $("#p").html(response.msg);
             // $.each(response["msg"], function (index, message) {
             //   sucess_Message += "<div>" + message + "</div>";
             // });
-
             // $("#p").html(sucess_Message).css({ color: "green" });
             // $("#p").show();
 
@@ -47,7 +43,6 @@ $("#submit").click(function (e) {
             $("#p").show();
         }
     })
-    
     .fail(function () {
       alert("your ajax request is not working");
     });
