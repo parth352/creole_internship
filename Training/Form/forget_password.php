@@ -47,7 +47,7 @@
                   
                 <div class="form-group">  
                     <label for="email"> Your Email </label>  
-                    <input type="email" class="form-control form-control-sm" id="email1" aria-describedby="emailHelp" name="email" required>
+                    <input type="email" class="form-control form-control-sm" id="email" aria-describedby="emailHelp" name="email" required>
                     <?php if(isset($email_err)) {echo "<p class='message'>" .$email_err. "</p>" ;}?>  
                 </div> 
                 <div> 

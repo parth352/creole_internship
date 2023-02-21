@@ -8,11 +8,14 @@
     <script src ="Resources\jquery.min.js"> </script>
     <script src ="Resources/jquery.validate.min.js"> </script>
     <script src ="js/login.js"> </script>
+     <script>console.log("Hello");
+     window.history.forward();</script>
+    
 </head>  
  
 <body>
 <!-- Main User Interface code -->
-<?php include  "nav_bar.php";?>     <!--This is for navigation bar-->
+<?php include  "nav_bar.php";?>     
 
 <div class="pt-0">  
   <div class="global-container">  
@@ -23,11 +26,11 @@
            
             <form id= "login_form" name="login_form" method="post" action="">  
                 <div class="form-group">  
-                    <label for="exampleInputEmail1"> Enter Your Email address </label>  
-                    <input type="email" class="form-control form-control-sm" id="email1" aria-describedby="emailHelp" name="email" value="<?php if(isset($_COOKIE['email'])) {echo $_COOKIE['email'];}?>" required>   
+                    <label for="email"> Enter Your Email address </label>  
+                    <input type="email" class="form-control form-control-sm" id="email" aria-describedby="emailHelp" name="email" value="<?php if(isset($_COOKIE['email'])) {echo $_COOKIE['email'];}?>" required>   
                 </div>  
                 <div class="form-group">  
-                    <label for="exampleInputPassword1">Enter Your Password </label>
+                    <label for="">Enter Your Password </label>
 
                     <a href="forget_password.php" style="float:right;font-size:12px;"> Forgot password? </a>
                       

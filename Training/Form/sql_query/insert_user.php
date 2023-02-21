@@ -1,5 +1,5 @@
 <?php
-    if(!empty($_POST['f_name']) && !empty($_POST['email']) && !empty($_POST['password'])){
+    // if(!empty($_POST['f_name']) && !empty($_POST['email']) && !empty($_POST['password'])){
 
         include 'connection.php';
 
@@ -16,25 +16,28 @@
                 $response =mysqli_query($conn, $sql_insert);
 
                if($response){
-                  $resp['status'] = true;
-                   echo json_encode($resp);
-                   exit;
+                //   $resp['status'] = true;
+                //    echo json_encode($resp);
+                //    exit;
+                echo 1;
                }
                else{
-                   $resp['msg'] = "Sorry for in convinience You are not registered";
-                   $resp['status'] = false;
-                   echo json_encode($resp);
-                   exit;
+                //    $resp['msg'] = "Sorry for in convinience You are not registered";
+                //    $resp['status'] = false;
+                //    echo json_encode($resp);
+                //    exit;
+                echo 2;
                    }
             }else {
-                $resp['msg'] = "You are already registered please Login";
-                $resp['status'] = false;
-                echo json_encode($resp);
+                // $resp['msg'] = "You are already registered please Login";
+                // $resp['status'] = false;
+                // echo json_encode($resp);
+                echo 2;
               }
-    }
-    else{
-        $resp['msg'] = "Please fill all the details";
-        $resp['status'] = false;
-        echo json_encode($resp);
-    }  
+    // }
+    // else{
+    //     $resp['msg'] = "Please fill all the details";
+    //     $resp['status'] = false;
+    //     echo json_encode($resp);
+    // }  
 ?> 
