@@ -6,13 +6,17 @@
         <link rel="stylesheet" href="bootstrap-5.0.2-dist\css\bootstrap.min.css">
         <link rel="stylesheet" href ="css/style.css">
         <script src ="Resources\jquery.min.js"> </script>
-        <script>console.log("Hello");
-     window.history.forward();</script>
-    </head>  
+      
  
     <body>
     <!-- Main User Interface code -->
-    <?php include  "nav_bar_signout.php";?>     <!--This is for navigation bar-->
+    <?php include  "nav_bar_signout.php";
+
+        // session_start();
+        // if(!isset($_SESSION['email'])){ 
+        //     header("Location: index.php");  }
+    ?>
+        
     <br>
     <h1 style="text-align:center; font-variant:small-caps;">User Listing Data</h1>
     <br>
@@ -30,8 +34,11 @@
         </tr>
     </thead>
     <tbody>
-            <?php include "sql_query/user_listing.php";?>
+        <?php include "sql_query/user_listing.php" ?>
     </tbody>
     </table>
+        
+    
+
     </body>  
 </html>  

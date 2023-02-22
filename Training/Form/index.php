@@ -8,8 +8,7 @@
     <script src ="Resources\jquery.min.js"> </script>
     <script src ="Resources/jquery.validate.min.js"> </script>
     <script src ="js/login.js"> </script>
-     <script>console.log("Hello");
-     window.history.forward();</script>
+    
     
 </head>  
  
