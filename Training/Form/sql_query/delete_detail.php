@@ -6,6 +6,8 @@
 
     if($result){
         header("Location: ../home_page.php");
+        session_start();
+        $_SESSION['delete']= "Your data is deleted";
     }
     else{
         echo "Error : ".mysqli_error();

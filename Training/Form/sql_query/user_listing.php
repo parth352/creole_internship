@@ -12,14 +12,14 @@
         {
             //  $image ="<img height="40" width="40" src="data:image;base64,'.base64_encode($rows['image']).'">";
         echo '<tr>
-        <th scope="row" style ="padding-top:27px;">' .$row["id"].'</th>
+        <th scope="row" style ="padding-top:27px; color: red;">' .$row["id"].'</th>
         <td style ="padding-top:27px;">'.$row["name"].'</td>
         <td style ="padding-top:27px;">'.$row["email"].'</td>
         <td style ="padding-top:27px;">'.$row["mo_number"].'</td>
         <td style ="padding-top:27px;">'.$row["address"].'</td>
         <td> <img class="img" height="60" width="60" src="image/'. $row['image'] .'"/> </td>
-        <td> <a href="update_list.php" ><button  class="btn btn-secondary" style ="margin-bottom:15px;"> Update </button></a> </td>
-        <td> <button class="btn btn-secondary"><a href = "sql_query/delete_detail.php?id='.$row["id"].'" style="color:white; text-decoration:none;">Delete</a></button></td>
+        <td><a href = "update_list.php?id='.$row["id"].'" style="color:white; text-decoration:none;"><button class="btn btn-secondary">Edit</button></a></td>
+        <td> <a href = "sql_query/delete_detail.php?id='.$row["id"].'" style="color:white; text-decoration:none;"><button class="btn btn-secondary">Delete</button></a></td>
         </tr>';
         }
     }

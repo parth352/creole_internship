@@ -2,7 +2,7 @@
 <head>  
     <meta charset="UTF-8">    
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"> -->
-    <!-- <script src ="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"> </script> -->
+    <script src ="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"> </script>
     <link rel="stylesheet" href="bootstrap-5.0.2-dist\css\bootstrap.min.css">
     <script src ="Resources\jquery.min.js"> </script>
     <link rel="stylesheet" href ="css/style.css">
@@ -11,7 +11,34 @@
     <script src="js\create_new.js"></script>
 </head>
 <body>
-    <?php include  "nav_bar_signout.php";?>          
+    <?php include  "nav_bar_signout.php";
+
+    // if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["mo_number"]) && isset($_POST["address"])){
+
+    //     $name    = $_POST["name"];
+    //     $email    = $_POST["email"];
+    //     $mo_number    = $_POST["mo_number"];
+    //     $address    = $_POST["address"];
+    //     // $image    = $_POST["uploadfile"];
+    //     $filename = $_FILES['uploadfile']["name"];
+    //     $tempname = $_FILES['uploadfile']["tmp_name"];
+    //     $folder = "../image/".$filename;
+
+    //     $name_length = strlen($name);
+    //     $address_length =strlen($address);
+        
+    //     if($name_length <=3 || $address_length <=5)
+    //     {
+    //             $message= "name should be of length 3";
+    //     }
+    //     else
+    //     {
+    //         echo '<script src="js\create_new.js"></script>';
+    //     }
+
+    // }
+    
+    ?>          
             
 
 
@@ -21,7 +48,7 @@
         <div class="card-body">  
             <h3 class="card-title text-center"> Insert Details </h3>  
             <div class="card-text">  
-                <form id= "create_new" name="create_new" method="post" action="" enctype="multipart/form-data"> 
+                <form id= "create_new" name="create_new" method="post" action="<?php echo $_SERVER['PHP_SELF'];?>" enctype="multipart/form-data"> 
                     <div class="form-group">  
                         <label for="name"><b>Name</b> </label>  
                         <input type="text" class="form-control form-control-sm" id="name" aria-describedby="nameHelp" name="name" required>    
@@ -46,7 +73,7 @@
                     <button class="btn btn-primary btn-block" id="submit"> insert </button>
                     </div> 
                     <div class="sign-up">  
-                        <p id="p" style="color:red; font-size:15px; font-variant:small-caps; "> </p>  
+                        <p id="p" style="color:red; font-size:15px; font-variant:small-caps; "><?php if(isset($message)){echo $message;}?> </p>  
                     </div>
                 </form>  
             </div>  

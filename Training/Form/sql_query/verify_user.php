@@ -3,9 +3,11 @@
 
         include 'connection.php';
         session_start();
+
         $email = $_POST['email'];
         $password = md5($_POST['password']);
         // $remember_me =$_POST['remember_me'];
+        
         $_SESSION['email']=$email;
 
         if(!empty($_POST['remember_me'])){

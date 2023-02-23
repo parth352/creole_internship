@@ -14,7 +14,13 @@
  
 <body>
 <!-- Main User Interface code -->
-<?php include  "nav_bar.php";?>     
+<?php include  "nav_bar.php";
+    session_start();
+    if(isset($_SESSION['login'])){     // can't come to login page without louout
+        header("Location: home_page.php"); 
+     }
+
+?>     
 
 <div class="pt-0">  
   <div class="global-container">  

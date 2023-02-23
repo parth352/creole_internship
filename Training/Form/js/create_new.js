@@ -40,14 +40,14 @@ $(document).ready (function () {
             cache: false,
             processData:false,
         }).done(function (resp) {
-            response = JSON.parse(resp);
-            if (response['status']) {
+            resp = JSON.parse(resp);
+            if (resp['status']) {
                 location.href = "home_page.php";    
             }
             else {
                 var errorMessage = '';
-                $("#p").html((res.msg));
-                $.each(response['msg'], function (index, message) {
+                $("#p").html((resp.msg));
+                $.each(resp['msg'], function (index, message) {
                     errorMessage += '<div>' + message + '</div>';
                 });
                 $("#p").html(errorMessage);

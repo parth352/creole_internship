@@ -8,7 +8,7 @@ $(document).ready (function () {
                     required: true,
                     email: true,
                 },
-                'phone':{
+                'mo_number':{
                     required: true,
                     minlength: 10,
                 },
@@ -22,7 +22,7 @@ $(document).ready (function () {
            },
            messages:{
                'email': "Please enter Email in proper format.",
-               'phone': "minimum length is 10",
+               'mo_phone': "minimum length is 10",
                'uploadfile':"only images are accepted",
            }, 
       
@@ -30,38 +30,33 @@ $(document).ready (function () {
    // $("#submit").click(function(e){
        submitHandler:function(form){
        // e.preventDefault();
-       var data = $('#update_detail').serialize();
-           $.ajax({
-               type: "POST",
-               url: "sql_query/update_detail.php",
-               data : data,
-            //    beforeSend:function(){
-            //         $(".loader").show();
-            //         $("#p").html("Please wait while loading...");
-            //     },
-               success: function (response) {
-                    response = JSON.parse(response);
-                   if (response['status']) {
-                       location.href = "home_page.php";
-                   }
-                   else {
-                    // $(".loader").hide();    
-                        var error_Message = '';
-                        $("#p").html((response.msg));
-                        $.each(response['msg'], function(index, message) {
-                            error_Message += '<div>' + message + '</div>';
-                        });
-                        $("#p").html(error_Message).css({'color':'red'});
-                        $("#p").show();
-                   }
-               },
-               error: function (xhr, status, error) { 
-                   console.log(xhr.responseText);
-                   alert("your ajax request is not working");
-               }
-           });
-   // })
-       },
-   })
-}); 
-  
+    //    var data = $('#create_new').serialize();
+        // var data = new FormData(this);
+        $.ajax({
+            type: "post",
+            url: "sql_query/update_detail.php",
+            data: new FormData(form),
+            contentType: false,
+            cache: false,
+            processData:false,
+        }).done(function (resp) {
+            resp = JSON.parse(resp);
+            if (resp['status']) {
+                location.href = "home_page.php";    
+            }
+            else {
+                var errorMessage = '';
+                $("#p").html((resp.msg));
+                $.each(resp['msg'], function (index, message) {
+                    errorMessage += '<div>' + message + '</div>';
+                });
+                $("#p").html(errorMessage);
+                $("#p").show();
+            }
+        }).fail(function () {
+            alert("ajax is not working");
+        });
+        
+    }
+  });
+});

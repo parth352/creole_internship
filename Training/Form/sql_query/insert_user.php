@@ -1,5 +1,5 @@
 <?php
-    // if(!empty($_POST['f_name']) && !empty($_POST['email']) && !empty($_POST['password'])){
+    if(!empty($_POST['f_name']) && !empty($_POST['email']) && !empty($_POST['password'])){
 
         include 'connection.php';
 
@@ -34,10 +34,10 @@
                 // echo json_encode($resp);
                 echo 2;
               }
-    // }
-    // else{
-    //     $resp['msg'] = "Please fill all the details";
-    //     $resp['status'] = false;
-    //     echo json_encode($resp);
-    // }  
+    }
+    else{
+        $resp['msg'] = "Please fill all the details";
+        $resp['status'] = false;
+        echo json_encode($resp);
+    }  
 ?> 
