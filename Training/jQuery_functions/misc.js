@@ -8,7 +8,7 @@ jQuery(document).ready(function(){  // so now we have to write full jQuery inste
         jQuery("p.noconflict_method").text("jQuery is working after using noConflict method which release the use of $ schortcut key");
     });
     
-    $("#shortcut_identifier").on('click',function(){  // here we have use sc as shortcut identifier
+    $("#shortcut_identifier").on('click',function(){  // here we have use $ as shortcut identifier
         $("p.shortcut_identifier").text("jQuery is still workig after creating short cut identifier");
     });
 
@@ -42,14 +42,14 @@ jQuery(document).ready(function(){  // so now we have to write full jQuery inste
 
 
 /*
-$.noConflict();
+var sc = $.noConflict();
 jQuery(document).ready(function(cb){  // so now we can also define schort cut identifier by writing schortcut key inside ready(function(shortcut_key))
-    cb("#noconflict_method").on('click',function(){
-        cb("p.noconflict_method").text("jQuery is working after using noConflict method which release the use of $ schortcut key");
+    sb("#noconflict_method").on('click',function(){
+        sb("p.noconflict_method").text("jQuery is working after using noConflict method which release the use of $ schortcut key");
     });
     
-    cb("#shortcut_identifier").on('click',function(){  // here we have use sc as shortcut identifier
-        cb("p.shortcut_identifier").text("jQuery is still workig after creating short cut identifier");
+    sc("#shortcut_identifier").on('click',function(){  // here we have use sc as shortcut identifier
+        sb("p.shortcut_identifier").text("jQuery is still workig after creating short cut identifier");
     });
 });
 */

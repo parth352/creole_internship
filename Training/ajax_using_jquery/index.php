@@ -41,17 +41,16 @@
 
         <h3>jQuery serialize() Method</h3>
         <form action="">
-            First name: <input type="text" name="FirstName" value=""><br>
-            Last name: <input type="text" name="LastName" value=""><br>
+            First name: <input type ="text" name ="FirstName" value=""><br>
+            Last name: <input type ="text" name ="LastName" value=""><br>
         </form>
         <div class ="ajax_serialize_method"></div>
         <button id ="ajax_serialize_method">click to creates a URL encoded text string by serializing form values.</button>
 
         <h3>jQuery serializeArray() Method</h3>
-        <div class="serialize_array"></div>
-        <button id="serialize_array" >Serialize form values</button>
+        <div class ="serialize_array"></div>
+        <button id ="serialize_array" >Serialize form values</button>
         
-
         <h3>Use of ajax send method change content of messaage when ajax request is about to send</h3>
         <div class ="ajax_send_method">here request message will be displayed</div>
 

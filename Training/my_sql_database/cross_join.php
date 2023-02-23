@@ -18,7 +18,7 @@
     echo "<h1> This is example of cross join Returns all the records from both the tables</h1>";
      $sql = "SELECT *
             FROM employe_info
-            CROSS JOIN order_info ON order_info.employe_id=employe_info.employe_id;";
+            CROSS JOIN order_info ON order_info.employe_id=employe_info.employe_id;";  // cross join will return result as same inner join because there is relationship given between two tables
     $result = $conn->query($sql);
     //display data on web page
     while($row = mysqli_fetch_array($result))

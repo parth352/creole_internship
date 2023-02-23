@@ -149,10 +149,6 @@ input[type=submit]:hover {
 <!-- input type month -->
 <label for="d_month">Car Delivery Date:</label><br>
   <input type="month" id="d_month" name="d_month"> <br><br>
-
-
-
-
   <input type="submit" value="Submit" aligne="center">
   <input type="reset" aligne="center">
 </fieldset>

@@ -20,7 +20,7 @@ while($a--)
   
 
 }
-
+echo $sum;
 
 if($sum===$temp)
 {
