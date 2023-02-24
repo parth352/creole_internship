@@ -13,34 +13,26 @@
 <body>
     <?php include  "nav_bar_signout.php";
 
-    // if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["mo_number"]) && isset($_POST["address"])){
+    // if(!isset($_POST["name"]) && !isset($_POST["email"]) && !isset($_POST["mo_number"]) && !isset($_POST["address"])){
 
+    //     $message= "please enter all field";
+    // }
+    // else{
     //     $name    = $_POST["name"];
     //     $email    = $_POST["email"];
-    //     $mo_number    = $_POST["mo_number"];
     //     $address    = $_POST["address"];
-    //     // $image    = $_POST["uploadfile"];
-    //     $filename = $_FILES['uploadfile']["name"];
-    //     $tempname = $_FILES['uploadfile']["tmp_name"];
-    //     $folder = "../image/".$filename;
-
+      
     //     $name_length = strlen($name);
     //     $address_length =strlen($address);
+    //     $email_length   =strlen($email);
         
-    //     if($name_length <=3 || $address_length <=5)
+    //     if($name_length <=3 || $address_length <=5 || $email_length <=3 )
     //     {
-    //             $message= "name should be of length 3";
+    //             $message= "please enter proper field";
     //     }
-    //     else
-    //     {
-    //         echo '<script src="js\create_new.js"></script>';
-    //     }
-
     // }
     
     ?>          
-            
-
 
     <div class="pt-0">   
     <div class="global-container">  
@@ -48,7 +40,7 @@
         <div class="card-body">  
             <h3 class="card-title text-center"> Insert Details </h3>  
             <div class="card-text">  
-                <form id= "create_new" name="create_new" method="post" action="<?php echo $_SERVER['PHP_SELF'];?>" enctype="multipart/form-data"> 
+                <form id= "create_new" name="create_new" method="post" action="" enctype="multipart/form-data"> 
                     <div class="form-group">  
                         <label for="name"><b>Name</b> </label>  
                         <input type="text" class="form-control form-control-sm" id="name" aria-describedby="nameHelp" name="name" required>    

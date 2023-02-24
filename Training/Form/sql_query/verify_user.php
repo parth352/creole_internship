@@ -4,9 +4,9 @@
         include 'connection.php';
         session_start();
 
-        $email = $_POST['email'];
-        $password = md5($_POST['password']);
-        // $remember_me =$_POST['remember_me'];
+        $email    =$_POST['email'];
+        $password =md5($_POST['password']);
+
         
         $_SESSION['email']=$email;
 
@@ -17,6 +17,14 @@
         $sql = "SELECT * FROM login_data where pass = '$password'  AND email = '$email'";
         $response = mysqli_query($conn, $sql);
         $row = mysqli_num_rows($response);
+
+        while($row1=mysqli_fetch_assoc($response))       // this is used to store session if user is admin
+        {   
+            if($row1["user_role"] == "admin"){
+
+                $_SESSION['user_role']= "You are Admin";
+            }
+        }
 
         if($row===1){
         // $resp['status'] = true;

@@ -1,11 +1,11 @@
 <?php
     if(!empty($_POST['otp'])){
-        
+
         include 'connection.php';
-        $otp    = $_POST["otp"];
-        $sql_filter_otp="SELECT otp FROM reset_password where otp = '$otp'";
-        $result = mysqli_query($conn, $sql_filter_otp);
-        $total_otp = mysqli_num_rows($result);
+        $otp            =$_POST["otp"];
+        $sql_filter_otp ="SELECT otp FROM reset_password where otp = '$otp'";
+        $result         =mysqli_query($conn, $sql_filter_otp);
+        $total_otp      =mysqli_num_rows($result);
 
         if ($total_otp === 1) {
             $resp['status'] = true;

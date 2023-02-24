@@ -1,6 +1,6 @@
 $(document).ready (function () {  
 
-    $("#create_new").validate ({
+    $("#view_profile").validate ({
            rules: {
                'name':{
                     required: true,
@@ -26,15 +26,15 @@ $(document).ready (function () {
                'email': "Please enter Email in proper format.",
                'mo_phone': "minimum length is 10",
                uploadfile:{
-                    require: "image is required",
-                    accept: "only images are accepted",
-                    filesize: "Max file size is of 3 mb",
-               },
+                require: "image is required",
+                accept: "only images are accepted",
+                filesize: "Max file size is of 3 mb",
+        },
            }, 
        submitHandler:function(form){
         $.ajax({
             type: "post",
-            url: "sql_query/create_new_user.php",
+            url: "sql_query/update_user_profile.php",
             data: new FormData(form),
             contentType: false,
             cache: false,
@@ -42,7 +42,8 @@ $(document).ready (function () {
         }).done(function (resp) {
             resp = JSON.parse(resp);
             if (resp['status']) {
-                location.href = "home_page.php";    
+                
+                location.href = "view_profile.php";    
             }
             else {
                 var errorMessage = '';
@@ -54,14 +55,13 @@ $(document).ready (function () {
                 $("#p").show();
             }
         }).fail(function () {
-            alert("error");
+            alert("ajax is not working");
         });
-        
     }
   });
 
   $.validator.addMethod("filesize", function(value, element, param) {        // This is for filesize of validation
     return this.optional(element) || (element.files[0].size <= param);
 }, "File size must be less than {0} bytes.");
+
 });
-  

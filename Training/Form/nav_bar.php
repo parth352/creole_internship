@@ -6,10 +6,10 @@
     </a>
     <div class="d-flex justify-coontent-between">
         <div class="p-3 pb-0 pt-0" style="color:white;">
-        <a href="index.php" style="color:white;">Login</a>
+        <a href="index.php" style="color:white; text-decoration: none;">Login</a>
     </div>
     <div class="p-3 pb-0 pt-0" style="color:white;">
-    <a href="signup.php" style="color:white;">Sign Up</a>
+    <a href="signup.php" style="color:white; text-decoration: none;">Sign Up</a>
     </div>
     </div>
   </div>

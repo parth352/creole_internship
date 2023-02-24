@@ -35,7 +35,23 @@
     </style>
 </head>
 <body>
-<?php include  "nav_bar.php";?>
+<?php include  "nav_bar.php";
+
+//  if(!isset($_POST["password"])){
+
+//     $message ="fill the field";
+//  }
+//  else{
+//     $pass    = $_POST["password"];
+//     $pass_length = strlen($pass);
+    
+//     if($pass_length <8 )
+//     {
+//         $message= "please enter proper field";
+//     }
+// }
+
+?>
 
 <div class="pt-0">  
   <div class="global-container">  
@@ -60,7 +76,7 @@
 
                 <div class="sign-up">
                 <div class ="loader"></div>
-                <p id="p" style="font-size:15px; font-variant:small-caps; color:red;">
+                <p id="p" style="font-size:15px; font-variant:small-caps; color:red;"><?php if(isset($message)){echo $message;}?>
                 </p>  
                 </div>
             </form> 

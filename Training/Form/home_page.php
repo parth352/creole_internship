@@ -52,8 +52,8 @@
             <th scope="col" ><span style="color:red;">Mob_number</span></th>
             <th scope="col" ><span style="color:red;">Address</span></th>
             <th scope="col" ><span style="color:red;">Image</span></th>
-            <th scope="col" ><span style="color:red;">Update</span></th>
-            <th scope="col" ><span style="color:red;">Delete</span></th>
+            <th scope="col" ><span style="color:red;" class="hide_button">Update</span></th>
+            <th scope="col" ><span style="color:red;" class="hide_button">Delete</span></th>
             </tr>
         </thead>
         <tbody id="myTable">

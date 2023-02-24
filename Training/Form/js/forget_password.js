@@ -9,11 +9,7 @@ $(document).ready (function () {
            messages:{
                'email': "Please enter Email in proper format.",
            }, 
-      
-       // login ajax call
-   // $("#submit").click(function(e){
        submitHandler:function(form){
-       // e.preventDefault();
        var data = $('#forget_password_form').serialize();
            $.ajax({
                type: "POST",
@@ -44,7 +40,6 @@ $(document).ready (function () {
                    alert("your ajax request is not working");
                }
            });
-   // })
        },
    })
 }); 

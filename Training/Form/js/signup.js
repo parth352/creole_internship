@@ -16,9 +16,6 @@ $(document).ready(function () {
     },
  
   submitHandler:function(form){
-    // e.preventDefault();
-  // $("#submit").click(function (e) {
-  //   e.preventDefault();
     var data = $("#signup_form").serialize();
     $.ajax({
       type: "post",
@@ -28,30 +25,11 @@ $(document).ready(function () {
         if (response==1) {
           location.href = "index.php";
         } else {
-          // var errorMessage = "";
-          // $("#p").html(response.msg);
-          // $.each(response["msg"], function (index, message) {
-          //   errorMessage += "<div>" + message + "</div>";
-          // });
           $("#p").html("You are already registeered").css({ color: "red" });
           $("#p").show();
         }
       }
     })
-      // .done(function (response) {
-      //   response = JSON.parse(response);
-      //   if (response["status"]) {
-      //     location.href = "index.php";
-      //   } else {
-      //     var errorMessage = "";
-      //     $("#p").html(response.msg);
-      //     $.each(response["msg"], function (index, message) {
-      //       errorMessage += "<div>" + message + "</div>";
-      //     });
-      //     $("#p").html(errorMessage).css({ color: "red" });
-      //     $("#p").show();
-      //   }
-      // })
       .fail(function () {
         alert("your ajax request is not working");
       });

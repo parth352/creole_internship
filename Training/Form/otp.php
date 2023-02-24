@@ -29,9 +29,7 @@
                     </div> 
                     <div class="sign-up">  
                     <p id="p" style="font-size:15px; font-variant:small-caps; color:red;"> </p>  
-                    </div>
-                    
-                </form> 
+                    </div> 
                 </form>  
             </div>  
         </div>  

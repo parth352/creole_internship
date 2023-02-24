@@ -1,9 +1,9 @@
 <?php
     require "connection.php";
-    $id = $_GET['id'];
-    $sql = "DELETE FROM user_list WHERE id='$id'";
-    $result = mysqli_query($conn, $sql);
-
+    $id     =$_GET['id'];
+    $sql    ="DELETE FROM user_list WHERE id='$id'";
+    $result =mysqli_query($conn, $sql);
+    
     if($result){
         header("Location: ../home_page.php");
         session_start();

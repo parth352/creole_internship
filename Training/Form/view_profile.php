@@ -2,77 +2,101 @@
 <head>  
     <meta charset="UTF-8">    
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"> -->
-    <script src ="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"> </script>
+    <!-- <script src ="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"> </script> -->
     <link rel="stylesheet" href="bootstrap-5.0.2-dist\css\bootstrap.min.css">
     <script src ="Resources\jquery.min.js"> </script>
     <link rel="stylesheet" href ="css/style.css">
     <script src ="Resources/jquery.validate.min.js"> </script>
     <script src ="Resources\additional-methods.min.js"> </script>
-    <!-- <script src="js\create_new.js"></script> -->
+    <script src="js\update_user_profile.js"></script>
 
     <style>
-        .gradient-custom {
-        /* fallback for old browsers */
-        background: #f6d365;
-
-        /* Chrome 10-25, Safari 5.1-6 */
-        background: -webkit-linear-gradient(to right bottom, rgba(246, 211, 101, 1), rgba(253, 160, 133, 1));
-
-        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-        background: linear-gradient(to right bottom, rgba(246, 211, 101, 1), rgba(253, 160, 133, 1))
-        }
+        body{margin-top:20px;}
+      .avatar{
+          width:200px;
+          height:200px;
+          }		
     </style>
 </head>
 
 <body>
-<?php include  "nav_bar_signout.php";
-      include "sql_query/view_profile_user.php";
-?>
+  <?php 
+    include  "nav_bar_signout.php";
+    include "sql_query/view_profile_user.php";
 
-<section class="vh-100" style="background-color: #f4f5f7;">
-  <div class="container py-5 h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col col-lg-6 mb-4 mb-lg-0">
-        <div class="card mb-3" style="border-radius: .5rem;">
-          <div class="row g-0">
-            <div class="col-md-4 gradient-custom text-center text-white"
-              style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
-              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
-                alt="Avatar" class="img-fluid my-5" style="width: 80px;" />
-              <h5>name</h5>
-              <p><?php if(isset($name)) {echo $name;}?></p>
-              <i class="far fa-edit mb-5"></i>
-            </div>
-            <div class="col-md-8">
-              <div class="card-body p-4">
-                <h6>Information</h6>
-                <hr class="mt-0 mb-4">
-                <div class="row pt-1">
-                  <div class="col-6 mb-3">
-                    <h6>Email</h6>
-                    <p class="text-muted"><?php if(isset($email)) {echo $email;}?></p>
-                  </div>
-                  <div class="col-6 mb-3">
-                    <h6>Phone</h6>
-                    <p class="text-muted">123 456 789</p>
-                  </div>
-                </div>
-                <!-- <h6>Projects</h6> -->
-                <hr class="mt-0 mb-4">
-                <div class="row pt-1">
-                  <div class="col-6 mb-3">
-                    <h6>address</h6>
-                    <p class="text-muted">Lorem ipsum</p>
-                  </div>
+        // if(!isset($_POST["name"]) && !isset($_POST["email"]) && !isset($_POST["mo_number"]) && !isset($_POST["address"])){
+
+        //         $message= "please enter all field";
+        //     }
+        //     else{
+        //         $name    = $_POST["name"];
+        //         $email    = $_POST["email"];
+        //         $address    = $_POST["address"];
+              
+        //         $name_length = strlen($name);
+        //         $address_length =strlen($address);
+        //         $email_length   =strlen($email);
+                
+        //         if($name_length <=3 || $address_length <=5 || $email_length <=3 )
+        //         {
+        //                 $message= "please enter proper field";
+        //         }
+        //     }
+  ?>
+
+  <div class="container bootstrap snippets bootdey">
+      <h1 class="text-primary">Edit Profile</h1>
+        <hr>
+
+        <form class="form-horizontal" id= "view_profile" name="view_profile" method="post" action="" enctype="multipart/form-data">
+          <div class="row">
+              <!-- left column -->
+              <div class="col-md-3">
+                <div class="text-center">
+                  <img src="image/<?php if(isset($image) && isset($id)){echo $id."/".$image;}?>" class="avatar img-circle img-thumbnail" alt="avatar">
+                  <h6>Upload a different photo...</h6>
+                  <input type="file" class="form-control" name="uploadfile" id="uploadfile" value="image/<?php if(isset($image)){echo $image;}?>">
                 </div>
               </div>
+              
+              <!-- edit form column -->
+              <div class="col-md-9 personal-info">
+                <h3>Personal info</h3>
+                
+                
+                  <div class="form-group">
+                    <label class="col-lg-3 control-label">name:</label>
+                    <div class="col-lg-8">
+                      <input class="form-control" type="text" name ="name" id="name" value="<?php if(isset($name)) {echo $name;}?>">
+                    </div>
+                  </div>
+              
+                  <div class="form-group">
+                    <label class="col-lg-3 control-label">mo_number:</label>
+                    <div class="col-lg-8">
+                      <input class="form-control" type="number" name="mo_number" id="mo_number" value="<?php if(isset($mo_number)) {echo $mo_number;}?>">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-lg-3 control-label">Email:</label>
+                    <div class="col-lg-8">
+                      <input class="form-control" type="text" name="email" id="email" value="<?php if(isset($email)) {echo $email;}?>">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-lg-3 control-label">address:</label> 
+                    <div class="col-lg-8">
+                      <textarea rows="2" cols="2" class="form-control" name="address" id="address"><?php if(isset($address)) {echo $address;}?></textarea>
+                    </div>
+                  </div>
+                  <button type="submit" class="btn btn-primary btn-block" name ="submit" id="submit"> Update </button>
             </div>
-          </div>
+          </form>
+          <p id="p" style="color:red; font-size:15px; font-variant:small-caps; "> <?php// if(isset($message)){echo $message;}?></p>  
+
         </div>
-      </div>
     </div>
   </div>
-</section>
-
+  <hr>
 </body>
 </html>  

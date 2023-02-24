@@ -11,17 +11,36 @@
     <script src="js\update_list.js"></script>
 </head>
 <body>
-    <?php include  "nav_bar_signout.php";
-          include "connection.php";
-          $id = $_GET['id'];
-          $sql_view = "SELECT * FROM user_list WHERE id = '$id' ";
-          $result = mysqli_query($conn, $sql_view); 
+    <?php 
+        //   if(!isset($_POST["name"]) && !isset($_POST["email"]) && !isset($_POST["mo_number"]) && !isset($_POST["address"])){
+
+        //         $message= "please enter all field";
+        //     }
+        //     else{
+        //         $name    = $_POST["name"];
+        //         $email    = $_POST["email"];
+        //         $address    = $_POST["address"];
+              
+        //         $name_length = strlen($name);
+        //         $address_length =strlen($address);
+        //         $email_length   =strlen($email);
+                
+        //         if($name_length <=3 || $address_length <=5 || $email_length <=3 )
+        //         {
+        //                 $message= "please enter proper field";
+        //         }
+        //     }
+
+        include  "nav_bar_signout.php";
+        include "connection.php";
+        $id = $_GET['id'];
+        $sql_view = "SELECT * FROM user_list WHERE id = '$id' ";
+        $result = mysqli_query($conn, $sql_view); 
       
-          if (mysqli_num_rows($result) > 0)
-          {
-              while($row=mysqli_fetch_assoc($result))
-              {
-                 
+        if (mysqli_num_rows($result) > 0)
+        {
+            while($row=mysqli_fetch_assoc($result))
+            {   
                $name= $row["name"];
                $email= $row["email"];
                $mo_number = $row["mo_number"];
@@ -29,7 +48,6 @@
                $image =$row["image"]; 
               }
           }
-
     ?>
 
 
@@ -57,7 +75,7 @@
                         <textarea rows="4" cols="4" id="address" name="address" class="form-control form-control-sm" value=""><?php if(isset($address)){echo $address;}?></textarea>  
                     </div>
                     <div class="form-group">
-                        <img name="profile_image"  height="60" width="60" src="image/<?php if(isset($image)){echo $image;}?>"/>  
+                        <img name="profile_image"  height="60" width="60" src="image/<?php if(isset($image)){echo $id."/".$image;}?>"/>  
                         <label for="uploadfile"><b>Profile Image</b></label>
                           
                         <input class="form-control form-control-sm" type="file" name="uploadfile" id="uploadfile" value="image/<?php if(isset($image)){echo $image;}?>"/>
@@ -68,7 +86,7 @@
                     <button type="submit" class="btn btn-primary btn-block" id="submit"> Update </button>
                     </div> 
                     <div class="sign-up">  
-                        <p id="p" style="color:red; font-size:15px; font-variant:small-caps; "> </p>  
+                        <p id="p" style="color:red; font-size:15px; font-variant:small-caps; "><?php if(isset($message)){echo $message;}?> </p>  
                     </div>
                 </form>  
             </div>  

@@ -7,6 +7,7 @@
     use PHPMailer\PHPMailer\Exception;
 
     if(!empty($_POST['email'])){
+        
         session_start();
         $email = $_POST['email'];
         $_SESSION["email"] = $email;  // This is used to store session

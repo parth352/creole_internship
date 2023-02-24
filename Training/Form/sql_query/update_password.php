@@ -1,14 +1,14 @@
 <?php
     if(!empty($_POST['reset_password'])){
+
         include 'connection.php';
         session_start();
         $reset_password =md5($_POST["reset_password"]);
-        $email =$_SESSION['email'];                         // retriving email value from sesiosn
+        $email          =$_SESSION['email'];                         // retriving email value from sesiosn
             
         $sql_update_password="UPDATE login_data 
                             SET pass = '$reset_password' 
                             WHERE email = '$email'";
-
         $result = mysqli_query($conn, $sql_update_password);
 
         if ($result) {

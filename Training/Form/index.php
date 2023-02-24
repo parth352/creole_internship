@@ -20,6 +20,19 @@
         header("Location: home_page.php"); 
      }
 
+    //  if(!isset($_POST["email"]) && !isset($_POST["password"])){
+
+    //     $message ="fill all the field";
+    //  }
+    //  else{
+    //     $pass    = $_POST["password"];
+    //     $pass_length = strlen($pass);
+        
+    //     if($pass_length <8 )
+    //     {
+    //         $message= "please enter proper field";
+    //     }
+    // }
 ?>     
 
 <div class="pt-0">  
@@ -51,7 +64,7 @@
                     <input type="checkbox" name="remember_me" id="remember_me"> Remember me</input>  
                 </div>
                 <div class="sign-up">  
-                    <p id="p" style="color:red; font-size:14px;"> </p>  
+                    <p id="p" style="color:red; font-size:14px;"><?php if(isset($message)){echo $message;}?> </p>  
                 </div>
                   
             </form>  

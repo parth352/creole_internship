@@ -1,4 +1,5 @@
 $(document).ready (function () {  
+
     $("#update_detail").validate ({
            rules: {
                'name':{
@@ -18,20 +19,19 @@ $(document).ready (function () {
                 'uploadfile':{
                     required: true,
                     accept: "image/jpg,image/jpeg,image/png,image/gif",
+                    filesize: 3000000,
                 },
            },
            messages:{
                'email': "Please enter Email in proper format.",
                'mo_phone': "minimum length is 10",
-               'uploadfile':"only images are accepted",
+               uploadfile:{
+                    require: "image is required",
+                    accept: "only images are accepted",
+                    filesize: "Max file size is of 3 mb",
+            },
            }, 
-      
-       // login ajax call
-   // $("#submit").click(function(e){
        submitHandler:function(form){
-       // e.preventDefault();
-    //    var data = $('#create_new').serialize();
-        // var data = new FormData(this);
         $.ajax({
             type: "post",
             url: "sql_query/update_detail.php",
@@ -56,7 +56,11 @@ $(document).ready (function () {
         }).fail(function () {
             alert("ajax is not working");
         });
-        
     }
   });
+
+  $.validator.addMethod("filesize", function(value, element, param) {        // This is for filesize of validation
+    return this.optional(element) || (element.files[0].size <= param);
+}, "File size must be less than {0} bytes.");
+
 });
