@@ -1,5 +1,4 @@
 <?php  
-error_reporting(0);
 
 if(!empty($_POST["name"]) && !empty($_POST["email"]) && !empty($_POST["mo_number"]) && isset($_POST["address"]))
 {
@@ -35,7 +34,8 @@ if(!empty($_POST["name"]) && !empty($_POST["email"]) && !empty($_POST["mo_number
                 $row = mysqli_fetch_assoc($result);
                 $id = $row['id'];
                 
-                mkdir('../image/' . $id);                                       // making new folder of id inside image
+                // making new folder of id inside image folder for storing images
+                mkdir('../image/' . $id);                                       
                 $folder    ="../image/".$id.'/'.$filename;                      // moving file to following path
                 move_uploaded_file($tempname, $folder);
                 $resp['status'] = true;

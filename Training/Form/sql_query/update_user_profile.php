@@ -4,7 +4,13 @@
         session_start();
         $login_session_email =$_SESSION['email'];
         include 'connection.php';
+
+        $sql_find_id ="SELECT * FROM user_list WHERE email ='$login_session_email' ";
+        $res =mysqli_query($conn, $sql_find_id);
+        $row=mysqli_fetch_assoc($res);
+            $id = $row['id'];                                       // getting id for storing and updating image
         
+
         $name      =$_POST["name"];
         $email     =$_POST["email"];
         $mo_number =$_POST["mo_number"];
