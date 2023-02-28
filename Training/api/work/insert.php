@@ -6,17 +6,17 @@ header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-type,
 
 include 'connection.php';
 // $data =json_decode(file_get_contents("php://input"), true);
-$name=mysqli_real_escape_string($conn,$_POST['name']);
-$email=mysqli_real_escape_string($conn,$_POST['email']);
-$address=mysqli_real_escape_string($conn,$_POST['password']);
-
-// $name = $data['sname'];
-// $email = $data['semail'];
-// $address =$data['saddress'];
 
 
+$name = $_POST['name'];
+$email = $_POST['email'];
+$address =$_POST['address'];
+$phone =$_POST['phone'];
+$filename  =$_FILES['image']["name"];
 
-$sql= "INSERT INTO basic_info(name,email,address) VALUES('$name','$email','$address')";
+
+
+$sql= "INSERT INTO basic_info(name,email,address,phone_number,image) VALUES('$name','$email','$address','$phone','$filename')";
 //    $result =mysqli_query($conn, $sql);
 
    if(mysqli_query($conn, $sql)){
@@ -28,5 +28,6 @@ $sql= "INSERT INTO basic_info(name,email,address) VALUES('$name','$email','$addr
    {
        echo json_encode(array('message'=>'not found'));
    }
+
 
 ?>
