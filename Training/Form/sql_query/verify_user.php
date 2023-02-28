@@ -11,8 +11,8 @@
         $_SESSION['email']=$email;
 
         if(!empty($_POST['remember_me'])){
-            setcookie ("email",$email,time()+ 360000, "/");
-            setcookie ("password",$_POST['password'],time()+ 360000, "/");
+            setcookie ("email",$email,time()+ 86400, "/");
+            setcookie ("password",$_POST['password'],time()+ 86400, "/");
         }    
         $sql = "SELECT * FROM login_data where pass = '$password'  AND email = '$email'";
         $response = mysqli_query($conn, $sql);
