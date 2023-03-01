@@ -1,7 +1,12 @@
 <?php
- header('content-type: application/json');
- header('Acess-Control-Allow-Origin: *');
-include 'connection.php';
+header('Access-Control-Allow-Origin:*');
+header('Access-Control-Allow-Credentials:true');
+header('Access-Control-Allow-Methods:POST');
+header('Access-Control-Allow-Headers:*');
+header('Content-Type:application/json');
+
+// include 'connection.php';
+include 'validate_token.php';
 
 $sql= "SELECT * FROM basic_info";
     $result =mysqli_query($conn, $sql);

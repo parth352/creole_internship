@@ -4,9 +4,10 @@ header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST');
 header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-type,Access-Control-Allow-Methods');
 
-include 'connection.php';
+// include 'connection.php';
 // $data =json_decode(file_get_contents("php://input"), true);
 
+include 'validate_token.php';
 
 $name = $_POST['name'];
 $email = $_POST['email'];
