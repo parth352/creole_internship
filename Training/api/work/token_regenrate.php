@@ -81,7 +81,8 @@ $key ="mykey12";
                     // $myarray['name'] = $row['name'];
                     // $myarray['email'] = $row['email'];
                     $myarray['jwt_token'] = $jwt_token;
-                    $sql_insert_token ="UPDATE generate_token SET access_token ='$jwt_token', refresh_token ='$jwt_refresh_token' Where user_id='$id'";
+                    $date = date('Y-m-d H:i:s');
+                    $sql_insert_token ="UPDATE generate_token SET access_token ='$jwt_token', refresh_token ='$jwt_refresh_token',update_time='$date' Where user_id='$id'";
                     if(mysqli_query($conn, $sql_insert_token)){
                       echo json_encode(array('message'=>'Your new token is','Data'=>$myarray));
                     }
