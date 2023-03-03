@@ -20,7 +20,7 @@
 </head>
 
 <body>
-  <?php 
+  <?php
     include  "nav_bar_signout.php";
     include "sql_query/view_profile_user.php";
 
@@ -42,6 +42,7 @@
         //                 $message= "please enter proper field";
         //         }
         //     }
+        
   ?>
 
   <div class="container bootstrap snippets bootdey">
