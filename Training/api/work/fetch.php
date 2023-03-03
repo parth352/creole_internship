@@ -16,7 +16,7 @@ $sql= "SELECT * FROM basic_info";
         echo json_encode($output);
     }else
     {
-        echo json_encode(array('message'=>'not found'));
+        echo json_encode(array('message'=>'data not found','status'=>false));
     }
 
 ?>

@@ -1,4 +1,5 @@
 <?php
+
     header('Access-Control-Allow-Origin:*');
     header('Access-Control-Allow-Credentials:true');
     header('Access-Control-Allow-Methods:POST');
@@ -31,7 +32,7 @@
         $access_token =get_object_vars( $decode_token );
         $user_id =$access_token['id'];
 
-        $sql_filter_token ="SELECT * FROM generate_token WHERE user_id='$user_id'";
+        $sql_filter_token ="SELECT * FROM generate_token WHERE access_token='$token'";
         $result =mysqli_query($conn, $sql_filter_token);
         $num_row =mysqli_num_rows($result);
         $row =mysqli_fetch_assoc($result);
@@ -43,20 +44,26 @@
                 if($access_token['expire'] < time()){
                     $message =" Your token is expired Acess Denied";
                     echo json_encode($message);
-                    include 'token_regenrate.php';        // this code is for regeneration of code   
+                    // include 'token_regenrate.php';        // this code is for regeneration of code   
                     exit();
                 }
                 else{
-                    $message =['msg'=>'Access Granted','status'=>200,'Data'=>$decode_token];
+                    // $message =['msg'=>'Access Granted','status'=>200,'Data'=>$decode_token];
+                    $message =['msg'=>'Access Granted','status'=>true];
                     echo json_encode($message);
                 }
             }
             else{
-                $message =['msg'=>'Token does not match','status'=>400];
+                $message =['msg'=>'Token does not match','status'=>false];
                 echo json_encode($message);
                 exit();
             } 
         }
+        else{
+            $message =['msg'=>'Token not found in database','status'=>false];
+            echo json_encode($message);
+            exit();
+        } 
     }     
         // else{
         //     $message =['msg'=>'Access Granted','status'=>200,'Data'=>$decode_token];
@@ -64,7 +71,7 @@
         // }
     // }
     catch (Exception $e){
-        $message =['msg'=>'Token does not match ','status'=>400,'error_msg'=>$e->getMessage()];
+        $message =['msg'=>'Token does not match ','status'=>false,'error_msg'=>$e->getMessage()];
         echo json_encode($message);
         exit();
     }
