@@ -36,7 +36,7 @@ if(!empty($_POST["name"]) && !empty($_POST["email"]) && !empty($_POST["mo_number
                 
                 // making new folder of id inside image folder for storing images
                 mkdir('../image/' . $id);                                       
-                $folder    ="../image/".$id.'/'.$filename;                      // moving file to following path
+                $folder    ="../image/".$id.'/'.$id.'.jpg';                      // moving file to following path
                 move_uploaded_file($tempname, $folder);
                 $resp['status'] = true;
                 echo json_encode($resp);

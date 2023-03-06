@@ -47,14 +47,17 @@
 
   <div class="container bootstrap snippets bootdey">
       <h1 class="text-primary">Edit Profile</h1>
-        <hr>
 
+      <a href="generate_pdf.php" style="float:right;" > <button class="btn btn-primary btn-block" name ="submit" id="submit">Generate PDF </button></a>
+        
+      <hr>
         <form class="form-horizontal" id= "view_profile" name="view_profile" method="post" action="" enctype="multipart/form-data">
           <div class="row">
               <!-- left column -->
               <div class="col-md-3">
                 <div class="text-center">
-                  <img src="image/<?php if(isset($image) && isset($id)){echo $id."/".$image;}?>" class="avatar img-circle img-thumbnail" alt="avatar">
+                  <!-- <img src="image/<?php //if(isset($image) && isset($id)){echo $id."/".$image;}?>" class="avatar img-circle img-thumbnail" alt="avatar"> -->
+                  <img src="image/<?php if(isset($image) && isset($id)){echo $id."/".$id.".jpg";}?>" class="avatar img-circle img-thumbnail" alt="avatar">
                   <h6>Upload a different photo...</h6>
                   <input type="file" class="form-control" name="uploadfile" id="uploadfile" value="image/<?php if(isset($image)){echo $image;}?>">
                 </div>
@@ -91,7 +94,8 @@
                     </div>
                   </div>
                   <button type="submit" class="btn btn-primary btn-block" name ="submit" id="submit"> Update </button>
-            </div>
+                  
+          </div>
           </form>
           <p id="p" style="color:red; font-size:15px; font-variant:small-caps; "> <?php// if(isset($message)){echo $message;}?></p>  
 

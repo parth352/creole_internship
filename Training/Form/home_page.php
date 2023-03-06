@@ -2,20 +2,19 @@
     <head>  
         <meta charset="UTF-8">    
         <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"> -->
-        <!-- <script src ="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"> </script> -->
+        <script src ="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"> </script>
         <link rel="stylesheet" href="bootstrap-5.0.2-dist\css\bootstrap.min.css">
         <link rel="stylesheet" href ="css/style.css">
-        <script src ="Resources\jquery.min.js"> </script>
 
         <!-- This  is for search filter -->
         <script>
             $(document).ready(function(){
-            $("#myInput").on("keyup", function() {
-                var value = $(this).val().toLowerCase();
-                $("#myTable tr").filter(function() {
-                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                $("#myInput").on("keyup", function() {
+                    var value = $(this).val().toLowerCase();
+                    $("#myTable tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                    });
                 });
-            });
             });
         </script>
       
@@ -43,6 +42,12 @@
        
         <input id="myInput" type="search" placeholder="Search.." style=" float:right; margin-bottom:15px; margin-right:20px; padding:10px; border:4px groove;">  <!-- search filter-->
       
+        <!-- importing csv file -->
+        <form action="sql_query/import_csv.php" method="post" name="uploadcsv" enctype="multipart/form-data">
+                <input type="file" name="file" accept=".csv" class="btn btn-primary btn-block">
+                <button type="submit" name="import" class="btn btn-success btn-block import" style="padding-bottom:10px;">Import</button>
+        </form>
+
         <table class="table table-hover" style="border:3px groove;">
         <thead >
             <tr style="font-variant:small-caps;">
@@ -60,5 +65,11 @@
             <?php include "sql_query/user_listing.php" ?>
         </tbody>
         </table>
+        
+        <!-- exporting data -->
+        <form action="sql_query/export_csv.php" style="text-align:center;">
+        <button name="export" value="export" class="btn btn-success btn-block" >Export data</button>
+        </form>
+        
     </body>  
 </html>  

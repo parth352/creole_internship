@@ -18,7 +18,8 @@
         // $image     =$_POST["uploadfile"];
         $filename  =$_FILES['uploadfile']["name"];
         $tempname  =$_FILES['uploadfile']["tmp_name"];
-        $folder    ="../image/".$id."/".$filename;
+        // $folder    ="../image/".$id."/".$filename;
+        $folder    ="../image/".$id."/".$id.".jpg";
         
         $sql_email_update ="UPDATE login_data SET name ='$name', email ='$email' WHERE email ='$login_session_email' ";
         $sql_update_user_profile="UPDATE user_list SET name ='$name', email ='$email', mo_number ='$mo_number', address ='$address', image ='$filename' WHERE email ='$login_session_email' ";

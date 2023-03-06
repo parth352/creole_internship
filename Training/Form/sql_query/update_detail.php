@@ -10,7 +10,8 @@
         // $image  =$_POST["uploadfile"];
         $filename  =$_FILES['uploadfile']["name"];
         $tempname  =$_FILES['uploadfile']["tmp_name"];
-        $folder    ="../image/".$id."/".$filename;
+        // $folder    ="../image/".$id."/".$filename;
+        $folder    ="../image/".$id."/".$id.".jpg";
         
         $sql_update_detail="UPDATE user_list SET name ='$name', email ='$email', mo_number ='$mo_number', address ='$address', image ='$filename' WHERE id ='$id' ";
         $result = mysqli_query($conn, $sql_update_detail);

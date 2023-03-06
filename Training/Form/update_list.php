@@ -75,11 +75,11 @@
                         <textarea rows="4" cols="4" id="address" name="address" class="form-control form-control-sm" value=""><?php if(isset($address)){echo $address;}?></textarea>  
                     </div>
                     <div class="form-group">
-                        <img name="profile_image"  height="60" width="60" src="image/<?php if(isset($image)){echo $id."/".$image;}?>"/>  
+                        <img name="profile_image"  height="60" width="60" src="image/<?php if(isset($image)){echo $id."/".$id.".jpg";}?>"/>  
                         <label for="uploadfile"><b>Profile Image</b></label>
                           
-                        <input class="form-control form-control-sm" type="file" name="uploadfile" id="uploadfile" value="image/<?php if(isset($image)){echo $image;}?>"/>
-
+                        <!-- <input class="form-control form-control-sm" type="file" name="uploadfile" id="uploadfile" value="image/<?php if(isset($image)){echo $image;}?>"/> -->
+                        <input class="form-control form-control-sm" type="file" name="uploadfile" id="uploadfile" value="image/<?php if(isset($image)){echo $id.'/'.$id.'.jpg';}?>"/>
                         <input type="hidden" id="hidden" name="hidden" value="<?php if(isset($id)){echo $id;}?>" />
                     </div> 
                     <div> 
